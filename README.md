@@ -72,21 +72,6 @@ A lean, end-to-end dbt pipeline that ingests raw ecommerce CSVs into DuckDB, app
    dbt docs generate
    dbt docs serve
 
-**Repo structure**
-```txt
-├── data/                 # raw CSVs (orders.csv, users.csv, products.csv)
-├── models/
-│   ├── staging/          # raw → cleaned staging tables
-│   ├── marts/            # curated customer, orders, revenue models
-│   └── sources.yml       # source definitions for raw tables
-├── macros/               # reusable SQL snippets & tests
-├── snapshots/            # historical snapshots (if needed)
-├── tests/                # custom tests
-├── dbt_project.yml       # project configuration
-├── profiles.example.yml  # template for your local profiles.yml
-└── .gitignore            # ignores dev.duckdb, CSVs, artifacts
-```
-
 **Resources**
 
 dbt docs: https://docs.getdbt.com/docs/introduction
