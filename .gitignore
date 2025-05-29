@@ -1,0 +1,13 @@
+# dbt runtime/artifacts
+target/
+dbt_modules/
+
+# DuckDB database file
+dev.duckdb
+logs/
+
+# All CSV files
+*.csv
+
+# user‐specific profiles
+~/.dbt/profiles.yml

@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg__distribution_centers
+    description: Distribution center name and location
+
+  - name: stg__users 
+    description: Users demographics and location information
+
+  - name: stg__events
+    description: User event data
+
+  - name: stg__inventory_items
+    description: Inventory items information
+
+  - name: stg__order_items
+    description: Order information on the item level
+
+  - name: stg__orders
+    description: Order information such as status and timestamps
+
+  - name: stg__products
+    description: Product information such as category, brand, price and sku details
