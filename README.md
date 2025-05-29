@@ -88,6 +88,7 @@ A lean, end-to-end dbt pipeline that ingests raw ecommerce CSVs into DuckDB, app
 ```
 
 **Resources**
+
 dbt docs: https://docs.getdbt.com/docs/introduction
 
 dbt blog: https://blog.getdbt.com/
