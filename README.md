@@ -50,7 +50,8 @@ A lean, end-to-end dbt pipeline that ingests raw ecommerce CSVs into DuckDB, app
    Add .csv files to your project’s seeds/ directory
    ```bash
    dbt seed
-   
+   ```
+
    Large files load into duckdb using CLI:
 
    ```bash
@@ -58,6 +59,7 @@ A lean, end-to-end dbt pipeline that ingests raw ecommerce CSVs into DuckDB, app
 
    -- repeat for the remaining large .csv files
    CREATE TABLE ecommerce.users AS SELECT * FROM read_csv_auto('users.csv');
+   ```
 
 6. **Build models & run tests**
    ```bash
@@ -82,8 +84,7 @@ A lean, end-to-end dbt pipeline that ingests raw ecommerce CSVs into DuckDB, app
 ├── dbt_project.yml       # project configuration
 ├── profiles.example.yml  # template for your local profiles.yml
 └── .gitignore            # ignores dev.duckdb, CSVs, artifacts
-
----
+```
 
 **Resources**
 dbt docs: https://docs.getdbt.com/docs/introduction
