@@ -47,17 +47,18 @@ A lean, end-to-end dbt pipeline that ingests raw ecommerce CSVs into DuckDB, app
 
    Small static files as seeds:
 
-   Add .csv files to your project’s seeds/ directory
+   Add small files to your project’s seeds/ directory and run:
    ```bash
    dbt seed
    ```
 
-   Large files load into duckdb using CLI:
+   Load large files into duckdb using CLI and then config as source in dbt:
 
    ```bash
+   duckdb dev.duckdb
+
    CREATE SCHEMA IF NOT EXISTS ecommerce;
 
-   -- repeat for the remaining large .csv files
    CREATE TABLE ecommerce.users AS SELECT * FROM read_csv_auto('users.csv');
    ```
 
@@ -88,6 +89,7 @@ A lean, end-to-end dbt pipeline that ingests raw ecommerce CSVs into DuckDB, app
 
 **Resources**
 dbt docs: https://docs.getdbt.com/docs/introduction
+
 dbt blog: https://blog.getdbt.com/
 
 **Enjoy!**
