@@ -194,6 +194,8 @@ models:
           - not_null        
       - name: gender
         description: Gender of the user associated with the order
+        data_tests:
+          - not_null
       - name: created_at
         description: Order created at timestamp
       - name: returned_at
