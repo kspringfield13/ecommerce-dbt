@@ -23,38 +23,12 @@ WITH customer_base AS (
     GROUP BY 1
 )
 , orders AS (
-    SELECT 
-        user_id,
-        COUNT(DISTINCT order_id) AS num_orders,
-        COUNT(DISTINCT 
-            CASE WHEN status = 'Shipped'
-            THEN order_id
-            END) AS num_orders_shipped,
-        COUNT(DISTINCT 
-            CASE WHEN status = 'Complete'
-            THEN order_id
-            END) AS num_orders_complete,
-        COUNT(DISTINCT 
-            CASE WHEN status = 'Processing'
-            THEN order_id
-            END) AS num_orders_processing,
-        COUNT(DISTINCT 
-            CASE WHEN status = 'Cancelled'
-            THEN order_id
-            END) AS num_orders_cancelled,
-        COUNT(DISTINCT 
-            CASE WHEN status = 'Returned'
-            THEN order_id
-            END) AS num_orders_returned,
-    FROM {{ ref('stg__orders') }}
-    GROUP BY 1
+    SELECT * 
+    FROM {{ ref('int_orders__pivoted') }}
 )
 , web_traffic AS (
-    SELECT 
-        user_id,
-        COUNT(DISTINCT session_id) AS num_web_sessions,
-    FROM {{ ref('stg__events') }}
-    GROUP BY 1
+    SELECT * 
+    FROM {{ ref('int_events__pivoted') }}
 )
 SELECT
     cb.user_id,
