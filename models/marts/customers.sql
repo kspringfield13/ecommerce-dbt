@@ -1,3 +1,6 @@
+{% set order_items_status = 'Complete' %}
+{% set country = 'Australia' %}
+
 WITH customer_base AS (
     SELECT 
         id AS user_id,
@@ -6,6 +9,7 @@ WITH customer_base AS (
         country AS customer_country,
         traffic_source AS customer_acquisition_channel
     FROM {{ ref('stg__users')}}
+    WHERE country = '{{ country }}'
 )
 , order_items AS (
     SELECT 
@@ -15,7 +19,7 @@ WITH customer_base AS (
         MIN(created_at) AS first_order_completed_at,
         MAX(created_at) AS last_order_completed_at,
     FROM {{ ref('stg__order_items') }}
-    WHERE status = 'Complete'
+    WHERE status = '{{ order_items_status }}'
     GROUP BY 1
 )
 , orders AS (
