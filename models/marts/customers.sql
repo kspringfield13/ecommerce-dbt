@@ -8,7 +8,7 @@ WITH customer_base AS (
         last_name AS customer_last_name,
         country AS customer_country,
         traffic_source AS customer_acquisition_channel
-    FROM {{ ref('stg__users')}}
+    FROM {{ ref('users_stg')}}
     WHERE country = '{{ country }}'
 )
 , order_items AS (
@@ -18,17 +18,17 @@ WITH customer_base AS (
         COUNT(DISTINCT id) AS total_items_purchased,
         MIN(created_at) AS first_order_completed_at,
         MAX(created_at) AS last_order_completed_at,
-    FROM {{ ref('stg__order_items') }}
+    FROM {{ ref('order_items_stg') }}
     WHERE status = '{{ order_items_status }}'
     GROUP BY 1
 )
 , orders AS (
     SELECT * 
-    FROM {{ ref('int_orders__pivoted') }}
+    FROM {{ ref('int_orders_pivoted') }}
 )
 , web_traffic AS (
     SELECT * 
-    FROM {{ ref('int_events__pivoted') }}
+    FROM {{ ref('int_events_pivoted') }}
 )
 SELECT
     cb.user_id,
