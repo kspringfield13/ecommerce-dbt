@@ -11,3 +11,6 @@ logs/
 
 # user‐specific profiles
 ~/.dbt/profiles.yml
+
+# env
+ecomm_env/

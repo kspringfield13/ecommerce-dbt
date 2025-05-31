@@ -11,17 +11,21 @@ A lean, end-to-end dbt pipeline that ingests raw ecommerce CSVs into DuckDB, app
    git clone git@github.com:your-username/ecommerce-dbt.git
    cd ecommerce-dbt
 
-2. **Install dependencies**
+2. **Create venv**
    ```bash
-   pip install dbt-core dbt-duckdb
+   python -m venv ecomm_env
 
-3. **Install DuckDB CLI**
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+
+4. **Install DuckDB CLI**
 
    Chocolately(Windows)
    ```bash
    choco install duckdb
 
-4. **Configure your profile**
+5. **Configure your profile**
 
    Install dbt and configure profile: ~/.dbt/profiles.yml and set:
 
@@ -40,7 +44,7 @@ A lean, end-to-end dbt pipeline that ingests raw ecommerce CSVs into DuckDB, app
 
      target: dev
 
-5. **Load raw CSVs**
+6. **Load raw CSVs**
 
    Can download CSVs here:
    https://www.kaggle.com/datasets/mustafakeser4/looker-ecommerce-bigquery-dataset 
@@ -62,12 +66,12 @@ A lean, end-to-end dbt pipeline that ingests raw ecommerce CSVs into DuckDB, app
    CREATE TABLE ecommerce.users AS SELECT * FROM read_csv_auto('users.csv');
    ```
 
-6. **Build models & run tests**
+7. **Build models & run tests**
    ```bash
    dbt run
    dbt test
 
-7. **Browse docs locally**
+8. **Browse docs locally**
    ```bash
    dbt docs generate
    dbt docs serve
