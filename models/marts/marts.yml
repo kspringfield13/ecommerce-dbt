@@ -10,7 +10,7 @@ models:
           - unique
           - not_null
           - relationships:
-              to: ref('users_stg')
+              to: ref('stg_users')
               field: id
       - name: customer_first_name
         description: Customer first name
@@ -60,7 +60,7 @@ models:
           - unique
           - not_null
           - relationships:
-              to: ref('products_stg')
+              to: ref('stg_products')
               field: id
       - name: product_name
         description: Product name

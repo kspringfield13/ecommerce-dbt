@@ -9,5 +9,5 @@ SELECT
         ,
     {%- endif -%}
     {%- endfor %}
-FROM {{ ref('orders_stg') }}
+FROM {{ ref('stg_orders') }}
 GROUP BY 1
