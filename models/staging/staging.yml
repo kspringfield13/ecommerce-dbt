@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: distribution_centers_stg
+  - name: stg_distribution_centers
     description: Distribution center name and location
     columns:
       - name: id 
@@ -18,7 +18,7 @@ models:
       - name: longitude
         description: Distribution center location longitude
 
-  - name: users_stg 
+  - name: stg_users
     description: Users demographics and location information
     columns:
       - name: id
@@ -69,7 +69,7 @@ models:
         data_tests:
           - not_null
 
-  - name: events_stg
+  - name: stg_events
     description: User event data
     columns: 
       - name: id
@@ -112,7 +112,7 @@ models:
       - name: event_type    
         description: Event type
 
-  - name: inventory_items_stg
+  - name: stg_inventory_items
     description: Inventory items information
     columns: 
       - name: id
@@ -147,7 +147,7 @@ models:
       - name: product_distribution_center_id
         description: Distribution center ID where the product is stored
 
-  - name: order_items_stg
+  - name: stg_order_items
     description: Order information on the item level
     columns: 
       - name: id
@@ -176,7 +176,7 @@ models:
       - name: sale_price
         description: Order item sale price
 
-  - name: orders_stg
+  - name: stg_orders
     description: Order information such as status and timestamps
     columns:
       - name: order_id
@@ -207,7 +207,7 @@ models:
       - name: num_of_item    
         description: Number of items ordered
 
-  - name: products_stg
+  - name: stg_products
     description: Product information such as category, brand, price and sku details
     columns: 
       - name: id

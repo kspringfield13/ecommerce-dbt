@@ -15,5 +15,5 @@ SELECT
     {%- endif -%}
     {%- endfor %}
 
-FROM {{ ref('events_stg') }}
+FROM {{ ref('stg_events') }}
 GROUP BY 1
